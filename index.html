@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="firestorage">
+<head>
+    <meta charset="UTF-8">
+    <title>Angularjs + Firebase storage</title>
+</head>
+
+<!-- Agregamos en controlador -->
+<body ng-controller="addData as add">
+
+    <!-- Accedemos al método para agregar la info a firebase -->
+    <form ng-submit="add.info(data)">
+        <div>
+            <label for="name">Nombre: </label>
+            <input type="text" id="name" ng-model="data.name">
+        </div>
+            <textarea id="text" cols="30" rows="10" ng-model="data.text"></textarea>
+        <div>
+            <input type="file" id="file">
+        </div>
+        <input type="submit">
+    </form>
+
+    
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" 
+integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<!-- AngularJs -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+<!-- Agregamos Firebase a nuestra aplicación -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCdgNJYX7uLSPhmjjqvJcZWVYFMWr-ijlg",
+    authDomain: "testing-firebase-820de.firebaseapp.com",
+    databaseURL: "https://testing-firebase-820de.firebaseio.com",
+    storageBucket: "testing-firebase-820de.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+<!-- Enlazamos nuestro archivo con el módulo de angular -->    
+<script src="app.js"></script>
+
+</body>
+</html>
